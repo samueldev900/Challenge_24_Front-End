@@ -23,53 +23,63 @@
     <header>
       <!-- place navbar here -->
     </header>
-    <main class="container p-4 rounded-2 w-25">
+    <main class=" p-4 rounded-2">
       <h1>Contact Us</h1>
-      <form action="">
+      <form action="" class="needs-validation" novalidate>
 
         <div class="row">
-          <div class="col">
-              <div class="mb-3">
-                  <label for="firstName" class="form-label">First name *</label>
-                  <input type="email" class="form-control border-green" id="firstName" aria-describedby="emailHelp">
-              </div>
+          <div class="col-12 col-md-6">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First name *</label>
+              <input type="text" class="form-control border-green" id="firstName" aria-describedby="emailHelp" required>
+              <div class="valid-feedback">Looks Good!</div>
+              <div class="invalid-feedback">This field is required</div>
+            </div>
           </div>
-          <div class="col">
-              <div class="mb-3">
-                  <label for="lastName" class="form-label">Last Name *</label>
-                  <input type="email" class="form-control border-green" id="lastName" aria-describedby="emailHelp">
-              </div>
+          <div class="col-12 col-md-6">
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last name *</label>
+              <input type="text" class="form-control border-green" id="lastName" aria-describedby="emailHelp" required>
+              <div class="valid-feedback">Looks Good!</div>
+              <div class="invalid-feedback">This field is required.</div>
+            </div>
           </div>
-      </div>
-      
-        <div class="mb-3">
-          <label for="firstName" class="form-label">Email Address  *</label>
-          <input type="email" class="form-control border-green" id="firstName" aria-describedby="emailHelp">
         </div>
         
-        <div class="row">
-          <label for="radioGroup" class="form-label">Query Type *</label>
-          <div class="col">
-            <div class="mb-3 form-check border border-success px-5 py-3 rounded-3">
-                <input type="radio" class="form-check-input" id="exampleCheck1" name="radioGroup">
-                <label class="form-check-label" for="exampleCheck1">General Enquiry</label>
-            </div>
+        <div class="mb-3">
+          <label for="firstName" class="form-label">Email Address  *</label>
+          <input type="email" class="form-control border-green" id="firstName" aria-describedby="emailHelp" required>
+          <div class="valid-feedback">Looks Good!</div>
+          <div class="invalid-feedback">Please enter a valid email address</div>
+        </div>
+        
+        <div class="row mb-3">
+          <label class="form-label">Query Type *</label>
+          <div class="col-12 col-md-6">
+            <label class="mb-3 form-check border border-success px-5 py-3 rounded-3 radioGrupo" for="exampleCheck1">
+              <input type="radio" class="form-check-input" id="exampleCheck1" name="radioGroup" required>
+              <label class="form-check-label" for="exampleCheck1">General Enquiry</label>
+            </label>
           </div>
-          <div class="col">
-            <div class="mb-3 form-check border border-success px-5 py-3 rounded-3">
-                <input type="radio" class="form-check-input" id="exampleCheck2" name="radioGroup">
-                <label class="form-check-label" for="exampleCheck2">Support Request</label>
-            </div>
+          <div class="col-12 col-md-6">
+            <label class="mb-3 form-check border border-success px-5 py-3 rounded-3 radioGrupo" for="exampleCheck2">
+              <input type="radio" class="form-check-input" id="exampleCheck2" name="radioGroup">
+              <label class="form-check-label" for="exampleCheck2">Support Request</label>
+            </label>
           </div>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Message *</label>
-          <textarea class="form-control border-green" id="exampleFormControlTextarea1" rows="6"></textarea>
+          <textarea class="form-control border-green" id="exampleFormControlTextarea1" rows="6" required></textarea>
+          <div class="valid-feedback">Looks Good!</div>
+          <div class="invalid-feedback">This field is required.</div>
         </div>
 
         <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
           <label class="form-check-label" for="exampleCheck1">I consent to being contacted by the team *</label>
+          <div class="valid-feedback">Looks Good!</div>
+          <div class="invalid-feedback">To submit this form. please consent to being contracted</div>
         </div>
       
         <div class="text-center"> <!-- Adicionando a classe text-center -->
@@ -83,7 +93,7 @@
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.0/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
       crossorigin="anonymous"
     ></script>
@@ -93,5 +103,45 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+          .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+
+              form.classList.add('was-validated')
+            }, false)
+          })
+      })()
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const radioButtons = document.querySelectorAll('input[name="radioGroup"]');
+        const labels = document.querySelectorAll('.radioGrupo');
+  
+        radioButtons.forEach(radio => {
+          radio.addEventListener('change', function() {
+            labels.forEach(label => {
+              label.classList.remove('active');
+            });
+            if (radio.checked) {
+              radio.closest('.radioGrupo').classList.add('active');
+            }
+          });
+      });
+    })
+  
+
+    </script>
   </body>
 </html>
