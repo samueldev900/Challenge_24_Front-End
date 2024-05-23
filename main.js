@@ -50,11 +50,9 @@ function showModal() {
   var mainElement = document.querySelector("main");
 
   if (name && lastName && email && (radio1 || radio2) && checkBox) {
+    SubmitEvent
     // Todos os campos estão preenchidos e o formulário é válido, então ativamos o modal
     myModal.style.top = "-15%"
-    mainElement.style.marginTop = "200px"
-  } else {
-    // Se o formulário não for válido, evitamos o envio padrão do formulário e exibimos uma mensagem de alerta
-    alert("Por favor, preencha todos os campos do formulário.");
+    mainElement.style.marginTop = "100px"
   }
 }
