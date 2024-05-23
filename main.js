@@ -52,7 +52,7 @@ function showModal() {
   if (name && lastName && email && (radio1 || radio2) && checkBox) {
     SubmitEvent
     // Todos os campos estão preenchidos e o formulário é válido, então ativamos o modal
-    myModal.style.top = "-15%"
+    myModal.style.top = "calc(0% - 110px)"
     mainElement.style.marginTop = "100px"
   }
 }

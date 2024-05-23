@@ -18,7 +18,7 @@ body {
 }
 main {
   position: relative;
-  background-color: var(--cor3);
+  background-color: var(--cor3);  
 }
 h1 {
   color: var(--cor5);
