@@ -50,9 +50,28 @@ function showModal() {
   var mainElement = document.querySelector("main");
 
   if (name && lastName && email && (radio1 || radio2) && checkBox) {
-    SubmitEvent
     // Todos os campos estão preenchidos e o formulário é válido, então ativamos o modal
-    myModal.style.top = "calc(0% - 110px)"
-    mainElement.style.marginTop = "100px"
-  }
+    myModal.style.top = "calc(0% - 110px)";
+    mainElement.style.marginTop = "100px";
+
+    var contador = 0;
+    var intervalo = setInterval(function() {
+        contador++;
+        if (contador >= 5) {
+            clearInterval(intervalo); // Para o temporizador quando alcançar 5 segundos
+            console.log("Contagem de 5 segundos completada!");
+            // Seu código aqui que você deseja executar após 5 segundos
+        }
+    }, 1000); // 1000 milissegundos = 1 segundo
 }
+
+
+}
+
+var form = document.getElementById('myForm');
+
+form.addEventListener('submit',(event)=>{
+  event.preventDefault();
+  showModal();
+  form.submit();
+});
